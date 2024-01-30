@@ -1,6 +1,5 @@
 const { User } = require('../models');
-const { signToken } = require('../utils/auth');
-const { AuthenticationError, UserInputError } = require('apollo-server-express');
+const { signToken, AuthenticationError } = require('../utils/auth');
 const { dateScalar } = require('./scalar');
 
 const resolvers = {
@@ -8,7 +7,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (!context.user) {
-        throw new AuthenticationError('Not logged in');
+        throw AuthenticationError;
       }
       return await User.findById(context.user._id)
     },
@@ -21,20 +20,19 @@ const resolvers = {
         return { token, user };
       } catch (err) {
         console.log(err);
-        throw new UserInputError('Incomplete Fields')
+        throw UserInputError
       }
     },
     loginUser: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw AuthenticationError;
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw AuthenticationError;
       }
 
       const token = signToken(user);

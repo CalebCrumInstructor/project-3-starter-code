@@ -9,8 +9,7 @@ import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
 import { HelmetProvider } from "react-helmet-async";
-import { BrowserRouter } from "react-router-dom";
-import AllRoutes from "./pages/AllRoutes";
+import { Outlet } from "react-router-dom";
 import Auth from "./components/Auth";
 
 const httpLink = createHttpLink({
@@ -36,13 +35,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <HelmetProvider>
-        <BrowserRouter>
-          <Provider store={store}>
-            <Auth>
-              <AllRoutes />
-            </Auth>
-          </Provider>
-        </BrowserRouter>
+        <Provider store={store}>
+          <Auth>
+            <Outlet />
+          </Auth>
+        </Provider>
       </HelmetProvider>
     </ApolloProvider>
   );

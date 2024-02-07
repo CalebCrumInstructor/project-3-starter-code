@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Bungee+Inline&family=Caveat&family=Dhurjati&family=Hedvig+Letters+Serif:opsz@12..24&family=Honk&family=Lora&family=Pacifico&family=Protest+Revolution&family=Smooch&family=Space+Mono&family=Splash&family=Unbounded&display=swap');
+
+:root { /* Fonts & Colors organized by ordinal precedence. */
+    --primary-font: 'Smooch', cursive;
+    --secondary-font: 'Bungee Inline', sans-serif;
+    --tertiary-font: 'Honk', system-ui;
+    --quaternary-font: 'Lora', serif;
+    --quinary-font: 'Protest Revolution', sans-serif;
+    --primary-color: rgb(37, 37, 37);
+    --secondary-color: rgb(226, 226, 226);
+}
+
+.primary-font {
+    font-family: var(--primary-font);
+}
+.secondary-font {
+    font-family: var(--secondary-font);
+}
+.tertiary-font {
+    font-family: var(--tertiary-font);
+}
+.quaternary-font {
+    font-family: var(--quaternary-font);
+}
+.quinary-font {
+    font-family: var(--quinary-font);
+}
+.primary-color {
+    font-family: var(--primary-color);
+}
+.secondary-color {
+    font-family: var(--secondary-color);
+}
+
+.site-header {
+    font-size: 40px;
+}

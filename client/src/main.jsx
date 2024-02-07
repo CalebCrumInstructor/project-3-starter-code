@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
+import "./edits.css";
 import "symbol-observable";
 
 import Home from "./pages/Home";

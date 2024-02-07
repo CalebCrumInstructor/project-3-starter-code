@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import "./edits.css";
 import "symbol-observable";

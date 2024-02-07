@@ -38,7 +38,7 @@ export default function Page({
     <>
       <Helmet>{headContent}</Helmet>
       <Header />
-      <div style={styles.container}>
+      <div style={styles.container} className="slider">
         <main style={styles.main}>
           {isProtected && !isAuthenticated ? <div>Unauthorized</div> : children}
         </main>

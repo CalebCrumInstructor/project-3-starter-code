@@ -4,6 +4,10 @@ import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
 
 const styles = {
+   h1: {
+    display: "flex",
+    text: "center",
+   },
   container: {
     display: "flex",
     flexDirection: "row",
@@ -37,7 +41,7 @@ export default function Header() {
   return (
     <nav style={styles.container}>
       <Link to={"/"} style={styles.undecoratedLink}>
-        <h1>Project-3 Starter Code</h1>
+        <h1 style={styles.container} className="quinary-font site-header" >Guild Journeys</h1>
       </Link>
       <div style={styles.buttonDiv}>
         {isAuthenticated && (

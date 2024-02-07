@@ -35,3 +35,79 @@
 .site-header {
     font-size: 40px;
 }
+
+/* .slider { */
+    /* width: 100%;
+    height: 100%; */
+    /* background-image: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/0_-_fantasy_map_dark_theme.png);
+    background-size: cover;
+    animation: slide 20s infinite;
+} */
+
+.slider {
+    background: url(../../client/public/images/0_-_fantasy_map_dark_theme.png);
+    background-size: cover;
+    animation: slide 40s infinite ;
+}
+
+/*? Animation */
+@keyframes slide {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        background-image: url(../../client/public/images/1_-_fantasy_map_world_dark_colors.png);
+        opacity: 1;
+    }
+    50% {
+        background-image: url(../../client/public/images/2_-_fantasy_map_dark_colors.png);
+        opacity: 1;
+    }
+    75% {
+        background-image: url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
+        opacity: 1;
+    }
+    100% {
+        background-image: url(../../client/public/images/0_-_fantasy_map_dark_theme.png);
+        opacity: 1;
+    }
+}
+
+/* @keyframes slide {
+    0% {
+        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
+        background-size: cover; */
+        /* opacity: 0; */
+    /* }
+    25% {
+        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/1_-_fantasy_map_world_dark_colors.png);
+        background-size: cover; */
+        /* opacity: 1; */
+    /* }
+    50% {
+        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/2_-_fantasy_map_dark_colors.png);
+        background-size: cover; */
+        /* opacity: 1; */
+    /* }
+    75% {
+        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
+        background-size: cover; */
+        /* opacity: 1; */
+    /* } */
+    /* 100% {
+        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
+        background-size: cover;
+        opacity: 0;
+    } */
+/* } */
+
+/* .montage {
+    width: 100px;
+    height: 100px;
+    background: url(../../client/public/images/0_-_fantasy_map_dark_theme[1].png) left top;
+    animation: play-sprite 0.8s steps(4) infinite;
+}
+
+@keyframes play-sprite {
+    100% { background-position: -400px; }
+} */

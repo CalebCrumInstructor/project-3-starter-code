@@ -16,6 +16,7 @@ const styles = {
     position: "fixed",
     top: "0",
     width: "100%",
+    zIndex: 100
   },
   buttonDiv: {
     display: "flex",
@@ -41,7 +42,7 @@ export default function Header() {
   return (
     <nav style={styles.container}>
       <Link to={"/"} style={styles.undecoratedLink}>
-        <h1 style={styles.container} className="quinary-font site-header" >Guild Journeys</h1>
+        <h1 className="quinary-font site-header my-2 ms-2" >Guild Journeys</h1>
       </Link>
       <div style={styles.buttonDiv}>
         {isAuthenticated && (

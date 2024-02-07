@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Campaign } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { dateScalar } = require('./scalar');
 
@@ -10,6 +10,12 @@ const resolvers = {
         throw AuthenticationError;
       }
       return await User.findById(context.user._id)
+    },
+    campaign: async (parent, args, context) => {
+      if (!context.campaign) {
+        throw AuthenticationError;
+      }
+      return await Campaign.findById(context.campaign._id)
     },
   },
   Mutation: {

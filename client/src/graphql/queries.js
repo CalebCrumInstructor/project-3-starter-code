@@ -11,5 +11,15 @@ export const QUERY_ME = gql`
       updatedAt
     }
   }
+  query getCampaign {
+    campaign {
+      _id
+      name
+      description
+      general_notes
+      session_notes
+      createdAt
+      updatedAt
+    }
 `;
 

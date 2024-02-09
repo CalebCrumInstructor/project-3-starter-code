@@ -11,6 +11,18 @@ export const QUERY_ME = gql`
       updatedAt
     }
   }
+
+  query getPresets {
+    presets {
+      _id
+      type
+      name
+      description
+      notes
+      createdAt
+      updatedAt
+    }
+
   query getCampaign {
     campaign {
       _id

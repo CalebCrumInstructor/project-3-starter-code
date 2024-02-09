@@ -1,4 +1,4 @@
-const { User, Campaign } = require('../models');
+const { User, Campaign, Presets } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { dateScalar } = require('./scalar');
 
@@ -16,6 +16,17 @@ const resolvers = {
         throw AuthenticationError;
       }
       return await Campaign.findById(context.campaign._id)
+    },
+    presets: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+
+      const data = await Presets.find()
+
+      console.log(data);
+
+      return data;
     },
   },
   Mutation: {
@@ -52,6 +63,15 @@ const resolvers = {
       } catch (err) {
         console.log(err);
         throw CreateCampaignError;
+      }
+    },
+    addPresets: async (parent, argObj) => {
+      try {
+        const presets = await Presets.create(argObj);
+        return { presets };
+      } catch (err) {
+        console.log(err);
+        throw CreatePresetsError;
       }
     }
   }

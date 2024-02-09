@@ -1,0 +1,142 @@
+[
+    {
+        "type": "Race",
+        "name": "Elf"
+    },
+    {
+        "type": "Race",
+        "name": "Dwarf"
+    },
+    {
+        "type": "Race",
+        "name": "Orc"
+    },
+    {
+        "type": "Race",
+        "name": "Gnome"
+    },
+    {
+        "type": "Race",
+        "name": "Human"
+    },
+    {
+        "type": "Race",
+        "name": "Goblin"
+    },
+    {
+        "type": "Race",
+        "name": "Halfling"
+    },
+    {
+        "type": "Race",
+        "name": "Centaur"
+    },
+    {
+        "type": "Race",
+        "name": "Lizardfolk"
+    },
+    {
+        "type": "Race",
+        "name": "Giant"
+    },
+    {
+        "type": "Race",
+        "name": "Troll"
+    },
+    {
+        "type": "Race",
+        "name": "Dragonborn"
+    },
+    {
+        "type": "Class",
+        "name": "Fighter"
+    },
+    {
+        "type": "Class",
+        "name": "Mage"
+    },
+    {
+        "type": "Class",
+        "name": "Cleric"
+    },
+    {
+        "type": "Class",
+        "name": "Ranger"
+    },
+    {
+        "type": "Class",
+        "name": "Theif"
+    },
+    {
+        "type": "Class",
+        "name": "Bard"
+    },
+    {
+        "type": "Subclass",
+        "name": "Friendly"
+    },
+    {
+        "type": "Subclass",
+        "name": "Neutral"
+    },
+    {
+        "type": "Subclass",
+        "name": "Hostile"
+    },
+    {
+        "type": "NPC",
+        "name": "Elf"
+    },
+    {
+        "type": "NPC",
+        "name": "Dwarf"
+    },
+    {
+        "type": "NPC",
+        "name": "Orc"
+    },
+    {
+        "type": "NPC",
+        "name": "Gnome"
+    },
+    {
+        "type": "NPC",
+        "name": "Human"
+    },
+    {
+        "type": "NPC",
+        "name": "Goblin"
+    },
+    {
+        "type": "NPC",
+        "name": "Halfling"
+    },
+    {
+        "type": "NPC",
+        "name": "Centaur"
+    },
+    {
+        "type": "NPC",
+        "name": "Lizardfolk"
+    },
+    {
+        "type": "NPC",
+        "name": "Giant"
+    },
+    {
+        "type": "NPC",
+        "name": "Troll"
+    },
+    {
+        "type": "NPC",
+        "name": "Dragonborn"
+    },
+    {
+        "type": "NPC",
+        "name": "Skeleton"
+    },
+    {
+        "type": "NPC",
+        "name": "Zombie"
+    }    
+]

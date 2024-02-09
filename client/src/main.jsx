@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard.jsx";
 import App from "./App.jsx";
 import PlayerSheet from "./pages/PlayerSheet.jsx";
+import CampaignSheet from "./pages/CampaignSheet.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/playersheet",
         element: <PlayerSheet />,
+      },
+      {
+        path: "/campaignsheet",
+        element: <CampaignSheet />,
       },
     ],
   },

@@ -46,19 +46,33 @@ export default function Dashboard() {
       {/* <div>Dashboard</div> */}
       <div style={styles.container}>
         <h1 className="secondary-font secondary-color">
-          Your Player Sheets!
+          Your Campaign Sheets!
         </h1>
         <div style={styles.minicontainer}>
           <div style={styles.buttonDiv}>
-            <Link to={"/playersheet"}>
-              <button style={styles.button1}>Create One Now!</button>
+            <Link to={"/campaignsheet"}>
+              <button style={styles.button1}>Create a Campaign now!</button>
             </Link>
-
 
           </div>
           
         </div>
       </div>
+      <div style={styles.container}>
+        <h1 className="secondary-font secondary-color">
+          Your Player Sheets!
+        </h1>
+        <div style={styles.minicontainer}>
+          <div style={styles.buttonDiv}>
+
+            <Link to={"/playersheet"}>
+              <button style={styles.button1}>Create a Player now!</button>
+            </Link>
+          </div>
+          
+        </div>
+      </div>
+
     </Page>
   );
 }

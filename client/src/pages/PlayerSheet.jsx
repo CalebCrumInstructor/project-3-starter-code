@@ -41,8 +41,17 @@ export default function PlayerSheet() {
         })
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async(event) => {
+      // event.preventDefault();
 
+      // try {
+      //   const { data } = await addPlayer({
+      //     variables: { ...formState },
+      //   });
+
+      // } catch (e) {
+      //   console.error(e);
+      // }
     };
 
 

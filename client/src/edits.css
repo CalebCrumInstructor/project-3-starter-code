@@ -61,7 +61,11 @@
     opacity: 0.75;
     background-size: cover;
     /*animation: slide 40s infinite ;  /*? for Shortened Animation */
-    /* animation: slide 300s infinite ;  ? for Lengthened Animation */
+    animation: slide 300s infinite ;  /*? for Lengthened Animation */
+}
+
+.z {
+    z-index: 0;
 }
 
 /*? Shortened Animation */

@@ -15,10 +15,11 @@ const headContent = (
 
 const styles = {
     form: {
-    display: "flex",
-    flexDirection: "Column",
-    alignItems: "center",
-    width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        // width: "100%",
+        flexWrap: "wrap",
     },
     submitBtn: {
     cursor: "pointer",
@@ -27,16 +28,26 @@ const styles = {
         display: "flex",
         flexDirection: "Column",
         alignItems: "center",
+        flexWrap: "wrap",
     },
     minicontainer: {
         display: "flex",
         flexDirection: "Column",
+        justifyContent: "center",
         alignItems: "center",
         width: "80%",
+        flexWrap: "wrap",
+    },
+    miniaturecontainer: {
+        // display: "flex",
+        // margin: "0px 5px 5px 5px",
+        // flexDirection: "center",
+        // justifyContent: "center",
+        // alignSelf: "center",
     },
     p1: {
         fontSize: "25px",
-        color: "var(--secondary-color)"
+        color: "var(--secondary-color)",
     },
     p2: {
         fontSize: "25px",
@@ -102,27 +113,85 @@ export default function CampaignSheet() {
         {/* <div>Campaign Sheet</div> */}
             <div style={styles.container}>
                 <div style={styles.minicontainer} className="rpgui-container framed">
-                    <div>
+                    {/* <div> */}
                         <form style={styles.form} onSubmit={handleSubmit}>
-                            <p style={styles.p1}>Campaign Name</p>
-                            <input style={styles.formelement}
-                                name="campaignName"
-                                type="text"
-                                onChange={handleChange}
-                                value={campaignData.campaignName}
-                            />
-                            <p style={styles.p2}>Campaign Description</p>
-                            <textarea style={styles.formelement2} rows="20" cols="45"
-                                name="campaignDesc"
-                                type="text"
-                                onChange={handleChange}
-                                value={campaignData.campaignDesc}
-                            />
-                            <button type="submit" style={styles.buttonDiv}>
-                                Submit
-                            </button>
+                            {/* <div style={styles.miniaturecontainer}> */}
+                                <p style={styles.p1}>Campaign Name</p>
+                                <input style={styles.formelement}
+                                    name="campaignName"
+                                    type="text"
+                                    onChange={handleChange}
+                                    value={campaignData.campaignName}
+                                />
+                            {/* </div>
+                            <div style={styles.miniaturecontainer}> */}
+                                <p style={styles.p2}>Campaign Description</p>
+                                <textarea style={styles.formelement2} rows="20" cols="45"
+                                    name="campaignDesc"
+                                    type="text"
+                                    onChange={handleChange}
+                                    value={campaignData.campaignDesc}
+                                />
+                            {/* </div>
+                            <div style={styles.miniaturecontainer}> */}
+                                <p style={styles.p2}>Things Allowed 1</p>
+                                <select style={styles.formelement2} size="4" multiple
+                                    name="races"
+                                    type="option"
+                                    onChange={handleChange}
+                                    value={campaignData.campaignDesc}>
+                                        <option value="option1">Option1</option>
+                                        <option value="option2">Option2</option>
+                                        <option value="option3">Option3</option>
+                                        <option value="option4">Option4</option>
+                                </select>
+                            {/* </div> */}
+                            {/* <div style={styles.miniaturecontainer}> */}
+                                <p style={styles.p2}>Things Allowed 2</p>
+                                <select style={styles.formelement2} size="4" multiple
+                                    name="races"
+                                    type="option"
+                                    onChange={handleChange}
+                                    value={campaignData.campaignDesc}>
+                                        <option value="option1">Option1</option>
+                                        <option value="option2">Option2</option>
+                                        <option value="option3">Option3</option>
+                                        <option value="option4">Option4</option>
+                                </select>
+                            {/* </div>
+                            <div style={styles.miniaturecontainer}> */}
+                                <p style={styles.p2}>Things Allowed 3</p>
+                                <select style={styles.formelement2} size="4" multiple
+                                    name="races"
+                                    type="option"
+                                    onChange={handleChange}
+                                    value={campaignData.campaignDesc}>
+                                        <option value="option1">Option1</option>
+                                        <option value="option2">Option2</option>
+                                        <option value="option3">Option3</option>
+                                        <option value="option4">Option4</option>
+                                </select>
+                            {/* </div>
+                            <div style={styles.miniaturecontainer}> */}
+                                <p style={styles.p2}>Things Allowed 4</p>
+                                <select style={styles.formelement2} size="4" multiple
+                                    name="races"
+                                    type="option"
+                                    onChange={handleChange}
+                                    value={campaignData.campaignDesc}>
+                                        <option value="option1">Option1</option>
+                                        <option value="option2">Option2</option>
+                                        <option value="option3">Option3</option>
+                                        <option value="option4">Option4</option>
+                                </select>
+                            {/* </div>
+                            <div style={styles.miniaturecontainer}> */}
+                                <button type="submit" style={styles.buttonDiv}>
+                                    Submit
+                                </button>
+                            {/* </div> */}
                         </form>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </Page>

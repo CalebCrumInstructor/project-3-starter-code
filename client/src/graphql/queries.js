@@ -15,6 +15,7 @@ export const QUERY_ME = gql`
     campaign {
       _id
       name
+      owner
       description
       general_notes
       session_notes

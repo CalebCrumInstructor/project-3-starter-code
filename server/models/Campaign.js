@@ -6,6 +6,11 @@ const campaignSchema = new Schema({
         required: true,
         trim: true
     },
+    owner: {
+        type: String,
+        required: true,
+        trim: true
+    },
     description: {
         type: String,
         trim: true,
@@ -28,7 +33,6 @@ const campaignSchema = new Schema({
     },
 });
 
-//const Campaign = mongoose.model('Campaign',  campaignSchema);
 const Campaign = model('Campaign',  campaignSchema);
 
 module.exports = Campaign;

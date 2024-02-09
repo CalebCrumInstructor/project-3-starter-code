@@ -20,6 +20,7 @@ const typeDefs = `
   type Campaign {
     _id: ID!
     name: String
+    owner: String
     description: String
     general_notes: String
     session_notes: String
@@ -35,7 +36,7 @@ const typeDefs = `
   type Mutation {
     addUser(firstName: String, lastName: String, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
-    addCampaign(name: String!, description: String, general_notes: String, session_notes: String) : Campaign
+    addCampaign(name: String!, owner: String!, description: String, general_notes: String, session_notes: String) : Campaign
   }
 `;
 

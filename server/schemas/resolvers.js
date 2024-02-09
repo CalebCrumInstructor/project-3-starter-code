@@ -12,7 +12,7 @@ const resolvers = {
       return await User.findById(context.user._id)
     },
     campaign: async (parent, args, context) => {
-      if (!context.campaign) {
+      if (!context.user) {
         throw AuthenticationError;
       }
       return await Campaign.findById(context.campaign._id)
@@ -45,6 +45,15 @@ const resolvers = {
 
       return { token, user };
     },
+    addCampaign: async (parent, argObj) => {
+      try {
+        const campaign = await Campaign.create(argObj);
+        return { campaign };
+      } catch (err) {
+        console.log(err);
+        throw CreateCampaignError;
+      }
+    }
   }
 };
 

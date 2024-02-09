@@ -31,3 +31,20 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_CAMPAIGN = gql`
+  mutation addCampaignMutation($name: String!, $description: String, $general_notes: String, $session_notes: String) {
+    addCampaign(name: $name, description: $description, general_notes: $general_notes, session_notes: $session_notes) {
+      token
+      campaign {
+        _id
+        name
+        description
+        general_notes
+        session_notes
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;

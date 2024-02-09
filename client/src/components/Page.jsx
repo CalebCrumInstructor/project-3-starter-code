@@ -12,7 +12,7 @@ const styles = {
     minHeight: "100vh",
   },
   main: {
-    paddingTop: "80px",
+    paddingTop: "120px", // was 80px
     flexGrow: "1",
   },
 };
@@ -38,7 +38,7 @@ export default function Page({
     <>
       <Helmet>{headContent}</Helmet>
       <Header />
-      <div style={styles.container}>
+      <div style={styles.container} className="slider">
         <main style={styles.main}>
           {isProtected && !isAuthenticated ? <div>Unauthorized</div> : children}
         </main>

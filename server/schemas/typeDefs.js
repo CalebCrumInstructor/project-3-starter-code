@@ -19,8 +19,8 @@ const typeDefs = `
 
   type Campaign {
     _id: ID!
-    name: String
-    owner: String
+    name: String!
+    owner: String!
     description: String
     general_notes: String
     session_notes: String

@@ -8,6 +8,7 @@
     --quinary-font: 'Protest Revolution', sans-serif;
     --primary-color: rgb(37, 37, 37);
     --secondary-color: rgb(226, 226, 226);
+    --tertiary-color: rgb(0, 0, 0);
 }
 
 .primary-font {
@@ -26,88 +27,177 @@
     font-family: var(--quinary-font);
 }
 .primary-color {
-    font-family: var(--primary-color);
+    color: var(--primary-color);
 }
 .secondary-color {
-    font-family: var(--secondary-color);
+    color: var(--secondary-color);
+}
+.tertiary-color {
+    color: var(--tertiary-color);
 }
 
 .site-header {
     font-size: 40px;
+    /* background: linear-gradient(45deg, blue, red) */
+    /* color: rgb(51, 51, 51); */
+    /* color: rgb(113, 113, 113); */
 }
 
-/* .slider { */
-    /* width: 100%;
-    height: 100%; */
-    /* background-image: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/0_-_fantasy_map_dark_theme.png);
-    background-size: cover;
-    animation: slide 20s infinite;
-} */
+.title:link {
+    color: rgb(83, 223, 248);
+}
+.title:visited {
+    color: rgb(0, 0, 0);
+}
+.title:hover {
+    color: rgb(248, 83, 83);
+}
+.title:active {
+    color: rgb(232, 248, 83);
+}
 
 .slider {
-    background: url(../../client/public/images/0_-_fantasy_map_dark_theme.png);
+    background: url(/images/0_-_fantasy_map_dark_theme.png);
+    opacity: 0.75;
     background-size: cover;
-    animation: slide 40s infinite ;
+    /*animation: slide 40s infinite ;  /*? for Shortened Animation */
+    /* animation: slide 300s infinite ;  ? for Lengthened Animation */
 }
 
-/*? Animation */
-@keyframes slide {
-    0% {
-        opacity: 1;
-    }
-    25% {
-        background-image: url(../../client/public/images/1_-_fantasy_map_world_dark_colors.png);
-        opacity: 1;
-    }
-    50% {
-        background-image: url(../../client/public/images/2_-_fantasy_map_dark_colors.png);
-        opacity: 1;
-    }
-    75% {
-        background-image: url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
-        opacity: 1;
-    }
-    100% {
-        background-image: url(../../client/public/images/0_-_fantasy_map_dark_theme.png);
-        opacity: 1;
-    }
-}
-
+/*? Shortened Animation */
 /* @keyframes slide {
     0% {
-        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
-        background-size: cover; */
-        /* opacity: 0; */
-    /* }
+        opacity: 1;
+    }
+    20% {
+        background-image: url(/images/0_-_fantasy_map_dark_theme.png);
+        opacity: 1;
+    }
     25% {
-        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/1_-_fantasy_map_world_dark_colors.png);
-        background-size: cover; */
-        /* opacity: 1; */
-    /* }
+        background-image: url(/images/1_-_fantasy_map_world_dark_colors.png);
+        opacity: 1;
+    }
+    45% {
+        background-image: url(/images/1_-_fantasy_map_world_dark_colors.png);
+        opacity: 1;
+    }
     50% {
-        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/2_-_fantasy_map_dark_colors.png);
-        background-size: cover; */
-        /* opacity: 1; */
-    /* }
+        background-image: url(/images/2_-_fantasy_map_dark_colors.png);
+        opacity: 1;
+    }
+    70% {
+        background-image: url(/images/2_-_fantasy_map_dark_colors.png);
+        opacity: 1;
+    }
     75% {
-        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
-        background-size: cover; */
-        /* opacity: 1; */
-    /* } */
-    /* 100% {
-        background: radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56)), url(../../client/public/images/3_-_fantasy_map_world_dark_colors.png);
-        background-size: cover;
-        opacity: 0;
-    } */
-/* } */
-
-/* .montage {
-    width: 100px;
-    height: 100px;
-    background: url(../../client/public/images/0_-_fantasy_map_dark_theme[1].png) left top;
-    animation: play-sprite 0.8s steps(4) infinite;
-}
-
-@keyframes play-sprite {
-    100% { background-position: -400px; }
+        background-image: url(/images/3_-_fantasy_map_world_dark_colors.png);
+        opacity: 1;
+    }
+    95% {
+        background-image: url(/images/3_-_fantasy_map_world_dark_colors.png);
+        opacity: 1;
+    }
+    100%{
+        background-image: url(/images/0_-_fantasy_map_dark_theme.png);
+        opacity: 1;
+    }
 } */
+
+/*? Lengthened Animation */
+@keyframes slide {
+    0% {
+        opacity: 0.75;
+    }
+    8% {
+        background-image: url(/images/0_-_fantasy_map_dark_theme.png);
+        opacity: 0.75;
+    }
+
+    10% {
+        background-image: url(/images/1_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+    17% {
+        background-image: url(/images/1_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+    19% {
+        background-image: url(/images/2_-_fantasy_map_dark_colors.png);
+        opacity: 0.75;
+    }
+    26% {
+        background-image: url(/images/2_-_fantasy_map_dark_colors.png);
+        opacity: 0.75;
+    }
+    28% {
+        background-image: url(/images/3_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+    35% {
+        background-image: url(/images/3_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+
+    37% {
+        background-image: url(/images/4_-_map_roleplay_world_quest_dark_theme.png);
+        opacity: 0.75;
+    }
+    44% {
+        background-image: url(/images/4_-_map_roleplay_world_quest_dark_theme.png);
+        opacity: 0.75;
+    }
+    46% {
+        background-image: url(/images/5_-_fantasy_map_dark_theme.png);
+        opacity: 0.75;
+    }
+    53% {
+        background-image: url(/images/5_-_fantasy_map_dark_theme.png);
+        opacity: 0.75;
+    }
+    55% {
+        background-image: url(/images/6_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+    62% {
+        background-image: url(/images/6_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+    64% {
+        background-image: url(/images/7_-_map_roleplay_world_quest.png);
+        opacity: 0.75;
+    }
+
+    71% {
+        background-image: url(/images/7_-_map_roleplay_world_quest.png);
+        opacity: 0.75;
+    }
+    73% {
+        background-image: url(/images/8_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+    80% {
+        background-image: url(/images/8_-_fantasy_map_world_dark_colors.png);
+        opacity: 0.75;
+    }
+    82% {
+        background-image: url(/images/9_-_map_roleplay_world_quest_dark_theme.png);
+        opacity: 0.75;
+    }
+    89% {
+        background-image: url(/images/9_-_map_roleplay_world_quest_dark_theme.png);
+        opacity: 0.75;
+    }
+    91% {
+        background-image: url(/images/10_-_map_roleplay_world_quest.png);
+        opacity: 0.75;
+    }
+    98% {
+        background-image: url(/images/10_-_map_roleplay_world_quest.png);
+        opacity: 0.75;
+    }
+
+    100%{
+        background-image: url(/images/0_-_fantasy_map_dark_theme.png);
+        opacity: 0.75;
+    }
+}

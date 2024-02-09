@@ -12,7 +12,7 @@ const styles = {
     minHeight: "100vh",
   },
   main: {
-    paddingTop: "80px",
+    paddingTop: "120px", // was 80px
     flexGrow: "1",
   },
 };

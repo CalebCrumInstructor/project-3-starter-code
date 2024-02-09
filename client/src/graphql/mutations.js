@@ -45,4 +45,6 @@ export const ADD_CAMPAIGN = gql`
         createdAt
         updatedAt
       }
+    }
+  }
 `;

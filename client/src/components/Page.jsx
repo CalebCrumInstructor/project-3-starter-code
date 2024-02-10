@@ -10,10 +10,11 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+    paddingTop: "120px",
   },
   main: {
-    paddingTop: "120px", // was 80px
     flexGrow: "1",
+    overflowY: "scroll"
   },
 };
 
@@ -38,7 +39,7 @@ export default function Page({
     <>
       <Helmet>{headContent}</Helmet>
       <Header />
-      <div style={styles.container} className="slider rpgui-content container">
+      <div style={styles.container} className="slider container-fluid rpgui-content">
         <main style={styles.main}>
           {isProtected && !isAuthenticated ? <div>Unauthorized</div> : children}
         </main>

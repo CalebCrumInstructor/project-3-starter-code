@@ -18,6 +18,7 @@ const styles = {
     display: "flex",
     flexDirection: "Row",
     alignItems: "center",
+    marginBottom: "25px",
   },
   buttonDiv: {
     fontFamily: "var(--tertiary-font)",
@@ -25,18 +26,9 @@ const styles = {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  button1: {
     fontSize: "25px",
     background: "radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56))",
     backgroundColor: "rgb(170, 170, 170)", // gray
-    margin: "0.5rem",
-  },
-  button2: {
-    fontSize: "25px",
-    background: "radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56))",
-    backgroundColor: "rgb(170, 170, 170)", // gray
-    margin: "0.5rem",
   },
 };
 
@@ -51,7 +43,7 @@ export default function Dashboard() {
         <div style={styles.minicontainer}>
           <div style={styles.buttonDiv}>
             <Link to={"/campaignsheet"}>
-              <button style={styles.button1}>Create a Campaign now!</button>
+              <button style={styles.buttonDiv}>Create a Campaign now!</button>
             </Link>
 
           </div>
@@ -63,10 +55,10 @@ export default function Dashboard() {
           Your Player Sheets!
         </h1>
         <div style={styles.minicontainer}>
-          <div style={styles.buttonDiv}>
+          <div style={styles.buttonDiv}> {/* */}
 
             <Link to={"/playersheet"}>
-              <button style={styles.button1}>Create a Player now!</button>
+              <button style={styles.buttonDiv}>Create a Player now!</button>
             </Link>
           </div>
           

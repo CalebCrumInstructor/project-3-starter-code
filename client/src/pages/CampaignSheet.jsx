@@ -19,8 +19,6 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        // width: "100%",
-        // flexWrap: "wrap",
     },
     submitBtn: {
     cursor: "pointer",
@@ -29,23 +27,12 @@ const styles = {
         display: "flex",
         flexDirection: "Column",
         alignItems: "center",
-        // flexWrap: "wrap",
     },
     minicontainer: {
         display: "flex",
         flexDirection: "Column",
-        // justifyContent: "center",
-        // alignItems: "center",
         width: "80%", 
-        // flexWrap: "wrap",
     },
-    // miniaturecontainer: {
-        // display: "flex",
-        // margin: "0px 5px 5px 5px",
-        // flexDirection: "center",
-        // justifyContent: "center",
-        // alignSelf: "center",
-    // },
     p1: {
         fontSize: "25px",
         color: "var(--secondary-color)",
@@ -55,12 +42,18 @@ const styles = {
         marginTop: "10px",
         color: "var(--secondary-color)"
     },
-    formelement1: {
+    formElementInput: {
         marginBottom: "10px",
+        width: "80%",
     },
-    formelement2: {
+    formElementTextarea: {
         marginBottom: "10px",
-        rows: "10",
+        height: "400px",
+        width: "80%",
+    },
+    formElementCheckbox: {
+        marginBottom: "10px",
+        rows: "50",
     },
     buttonDiv: {
         fontFamily: "var(--tertiary-font)",
@@ -120,7 +113,7 @@ export default function CampaignSheet() {
                 <form style={styles.form} onSubmit={handleSubmit}>
 
                     <p style={styles.p1}>Campaign Name</p>
-                    <input style={styles.formelement}
+                    <input style={styles.formElementInput}
                         name="campaignName"
                         type="text"
                         onChange={handleChange}
@@ -128,7 +121,7 @@ export default function CampaignSheet() {
                     />
 
                     <p style={styles.p2}>Campaign Description</p>
-                    <textarea style={styles.formelement2} rows="20" cols="40"
+                    <textarea style={styles.formElementTextarea} rows="20" cols="40"
                         name="campaignDesc"
                         type="text"
                         onChange={handleChange}
@@ -136,7 +129,7 @@ export default function CampaignSheet() {
                     />
 
                     <p style={styles.p2}>Things Allowed 1</p>
-                    <select style={styles.formelement2} size="4" multiple
+                    <select style={styles.formElementCheckbox} size="4" multiple
                         name="races"
                         type="option"
                         onChange={handleChange}
@@ -148,7 +141,7 @@ export default function CampaignSheet() {
                     </select>
 
                     <p style={styles.p2}>Things Allowed 2</p>
-                    <select style={styles.formelement2} size="4" multiple
+                    <select style={styles.formElementCheckbox} size="4" multiple
                         name="races"
                         type="option"
                         onChange={handleChange}
@@ -160,7 +153,7 @@ export default function CampaignSheet() {
                     </select>
 
                     <p style={styles.p2}>Things Allowed 3</p>
-                    <select style={styles.formelement2} size="4" multiple
+                    <select style={styles.formElementCheckbox} size="4" multiple
                         name="races"
                         type="option"
                         onChange={handleChange}
@@ -172,7 +165,7 @@ export default function CampaignSheet() {
                     </select>
 
                     <p style={styles.p2}>Things Allowed 4</p>
-                    <select style={styles.formelement2} size="4" multiple
+                    <select style={styles.formElementCheckbox} size="4" multiple
                         name="races"
                         type="option"
                         onChange={handleChange}

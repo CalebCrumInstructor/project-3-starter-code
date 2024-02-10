@@ -1,5 +1,9 @@
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+
 import { Link } from "react-router-dom";
 import Page from "../components/Page";
+import { QUERY_MY_CAMPAIGNS } from '../graphql/queries';
 
 const headContent = (
   <>
@@ -41,6 +45,8 @@ const styles = {
 };
 
 export default function Dashboard() {
+  const { loading, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
+  console.log(campaignData);
   return (
     <Page isProtected={false} headContent={headContent}> {/* isProtected={true} */}
       {/* <div>Dashboard</div> */}

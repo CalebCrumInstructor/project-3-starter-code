@@ -38,7 +38,7 @@ export default function Page({
     <>
       <Helmet>{headContent}</Helmet>
       <Header />
-      <div style={styles.container} className="slider">
+      <div style={styles.container} className="slider rpgui-content container">
         <main style={styles.main}>
           {isProtected && !isAuthenticated ? <div>Unauthorized</div> : children}
         </main>

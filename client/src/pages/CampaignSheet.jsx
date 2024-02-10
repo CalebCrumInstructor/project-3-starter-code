@@ -115,9 +115,9 @@ export default function CampaignSheet() {
 
 
     return (
-        <Page isProtected={false} headContent={headContent} className="rpgui-content container"> {/* isProtected={true} */}
+        <Page isProtected={false} headContent={headContent} className=""> {/* isProtected={true} */}
 
-            <div style={styles.container} className=" mobile"> {/* rpgui-content? */}
+            <div style={styles.container} className="mobile"> {/* ? */}
 
                 <div style={styles.minicontainer} className="rpgui-container framed mobile">
                     <div style={styles.scrollbar} className="mobile-scrollbar">

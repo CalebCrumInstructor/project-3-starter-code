@@ -93,15 +93,17 @@ export default function CampaignSheet() {
     const handleChange = (event) => {
         console.log('hit')
         const { name, value } = event.target;
-
+        
         setCampaignData({
             ...campaignData,
             [name]: value
         })
     }
 
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
+
 
         try {
             const { data } = await addCampaign({
@@ -116,6 +118,7 @@ export default function CampaignSheet() {
     
     return (
         <Page isProtected={false} headContent={headContent}> {/* isProtected={true} */}
+        {/* <div>Campaign Sheet</div> */}
             <div style={styles.minicontainer} className="rpgui-container framed mx-auto my-4">
                 <form style={styles.form} onSubmit={handleSubmit}>
                     <div className="container-fluid">
@@ -153,6 +156,10 @@ export default function CampaignSheet() {
                                         <option value="option2">Option2</option>
                                         <option value="option3">Option3</option>
                                         <option value="option4">Option4</option>
+                                        <option value="option5">Option5</option>
+                                        <option value="option6">Option6</option>
+                                        <option value="option7">Option7</option>
+                                        <option value="option8">Option8</option>
                                 </select>
                             </div>
                             <div className="col-12 col-md-6">
@@ -166,6 +173,10 @@ export default function CampaignSheet() {
                                         <option value="option2">Option2</option>
                                         <option value="option3">Option3</option>
                                         <option value="option4">Option4</option>
+                                        <option value="option5">Option5</option>
+                                        <option value="option6">Option6</option>
+                                        <option value="option7">Option7</option>
+                                        <option value="option8">Option8</option>
                                 </select>
                             </div>
                             <div className="col-12 col-md-6">
@@ -179,6 +190,10 @@ export default function CampaignSheet() {
                                         <option value="option2">Option2</option>
                                         <option value="option3">Option3</option>
                                         <option value="option4">Option4</option>
+                                        <option value="option5">Option5</option>
+                                        <option value="option6">Option6</option>
+                                        <option value="option7">Option7</option>
+                                        <option value="option8">Option8</option>
                                 </select>
                             </div>
                             <div className="col-12 col-md-6">
@@ -192,9 +207,36 @@ export default function CampaignSheet() {
                                         <option value="option2">Option2</option>
                                         <option value="option3">Option3</option>
                                         <option value="option4">Option4</option>
+                                        <option value="option5">Option5</option>
+                                        <option value="option6">Option6</option>
+                                        <option value="option7">Option7</option>
+                                        <option value="option8">Option8</option>
                                 </select>
-
                             </div>
+
+                            <div className="col-12 col-md-6">
+                                <p style={styles.p2}>Things Allowed 4</p>
+                                <div>
+                                    <input id="option1" style={styles.formElementCheckbox} className="rpgui-checkbox"
+                                        name="option1"
+                                        type="checkbox"
+                                        onChange={handleChange}
+                                        value={campaignData.campaignDesc}/>
+                                            <label htmlFor="option1">Option1</label>
+                                </div>
+                                <div>
+                                    <input id="option2" style={styles.formElementCheckbox} className="rpgui-checkbox"
+                                        name="option2"
+                                        type="checkbox"
+                                        onChange={handleChange}
+                                        value={campaignData.campaignDesc}/>
+                                            <label htmlFor="option2">Option2</label>
+                                </div>
+                            </div>
+
+
+                            {/* <input class="rpgui-checkbox" type="checkbox"><label>This is checkbox.</label></input> */}
+
                         </div>
                         <div className="row">
                             <div className="col d-flex justify-content-center">

@@ -15,6 +15,16 @@ module.exports = {
       code: 'BAD_USER_INPUT',
     },
   }),
+  CreateCampaignError: new GraphQLError('Unable to create campaign.', {
+    extensions: {
+      code: 'BAD_USER_INPUT',
+    },
+  }),
+  CreatePresetsError: new GraphQLError('Unable to create campaign.', {
+    extensions: {
+      code: 'BAD_USER_INPUT',
+    },
+  }),
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
 

@@ -74,6 +74,14 @@ const styles = {
 
 export default function CampaignSheet() {
 
+    const { id } = useParams();
+
+    const { loading, data } = useQuery(FIND_CAMPAIGN, {
+
+        // pass URL parameter
+        variables: { _id: campaignID }
+    });
+
     const [addCampaign, { error }] = useMutation
     (ADD_CAMPAIGN, {
     });

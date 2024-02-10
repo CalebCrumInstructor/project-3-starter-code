@@ -40,7 +40,8 @@ const typeDefs = `
 
   type Query {
     me: User
-    campaign: Campaign
+    campaign(_id: ID!): Campaign
+    allCampaignsByUser: [Campaign]
     presets: [Presets]
   }
 

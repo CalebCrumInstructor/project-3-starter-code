@@ -15,7 +15,15 @@ const resolvers = {
       if (!context.user) {
         throw AuthenticationError;
       }
-      return await Campaign.findById(context.campaign._id)
+      return await Campaign.findById(args.campaign._id)
+    },
+    allCampaignsByUser: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      return await Campaign.find({
+        owner: context.user._id
+      })
     },
     presets: async (parent, args, context) => {
       if (!context.user) {

@@ -1,5 +1,9 @@
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+
 import { Link } from "react-router-dom";
 import Page from "../components/Page";
+import { QUERY_MY_CAMPAIGNS } from '../graphql/queries';
 
 const headContent = (
   <>
@@ -18,6 +22,7 @@ const styles = {
     display: "flex",
     flexDirection: "Row",
     alignItems: "center",
+    marginBottom: "25px",
   },
   buttonDiv: {
     fontFamily: "var(--tertiary-font)",
@@ -25,40 +30,47 @@ const styles = {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  button1: {
     fontSize: "25px",
     background: "radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56))",
     backgroundColor: "rgb(170, 170, 170)", // gray
-    margin: "0.5rem",
-  },
-  button2: {
-    fontSize: "25px",
-    background: "radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56))",
-    backgroundColor: "rgb(170, 170, 170)", // gray
-    margin: "0.5rem",
   },
 };
 
 export default function Dashboard() {
+  const { loading, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
+  console.log(campaignData);
   return (
     <Page isProtected={false} headContent={headContent}> {/* isProtected={true} */}
       {/* <div>Dashboard</div> */}
       <div style={styles.container}>
         <h1 className="secondary-font secondary-color">
-          Your Player Sheets!
+          Your Campaign Sheets!
         </h1>
         <div style={styles.minicontainer}>
           <div style={styles.buttonDiv}>
-            <Link to={"/playersheet"}>
-              <button style={styles.button1}>Create One Now!</button>
+            <Link to={"/campaignsheet"}>
+              <button style={styles.buttonDiv}>Create a Campaign now!</button>
             </Link>
-
 
           </div>
           
         </div>
       </div>
+      <div style={styles.container}>
+        <h1 className="secondary-font secondary-color">
+          Your Player Sheets!
+        </h1>
+        <div style={styles.minicontainer}>
+          <div style={styles.buttonDiv}> {/* */}
+
+            <Link to={"/playersheet"}>
+              <button style={styles.buttonDiv}>Create a Player now!</button>
+            </Link>
+          </div>
+          
+        </div>
+      </div>
+
     </Page>
   );
 }

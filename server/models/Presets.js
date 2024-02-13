@@ -1,12 +1,12 @@
 const { Schema, model } = require('mongoose');
 
-const campaignSchema = new Schema({
-    name: {
+const presetsSchema = new Schema({
+    type: {
         type: String,
         required: true,
         trim: true
     },
-    owner: {
+    name: {
         type: String,
         required: true,
         trim: true
@@ -15,11 +15,7 @@ const campaignSchema = new Schema({
         type: String,
         trim: true,
     },
-    general_notes: {
-        type: String,
-        trim: true,
-    },
-    session_notes: {
+    notes: {
         type: String,
         trim: true,
     },
@@ -33,6 +29,6 @@ const campaignSchema = new Schema({
     },
 });
 
-const Campaign = model('Campaign',  campaignSchema);
+const Presets = model('Presets',  presetsSchema);
 
-module.exports = Campaign;
+module.exports = Presets;

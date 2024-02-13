@@ -11,15 +11,37 @@ export const QUERY_ME = gql`
       updatedAt
     }
   }
-  query getCampaign {
-    campaign {
-      _id
-      name
-      description
-      general_notes
-      session_notes
-      createdAt
-      updatedAt
-    }
+`;
+
+// query getPresets {
+//   presets {
+//     _id
+//     type
+//     name
+//     description
+//     notes
+//     createdAt
+//     updatedAt
+//   }
+
+
+
+// query getCampaignClass {
+//   campaign_class {
+//     _id
+//     campaign_id
+//     name
+//     description
+//     notes
+//   }
+// }
+
+export const QUERY_MY_CAMPAIGNS = gql`
+query AllCampaignsByUser {
+  allCampaignsByUser {
+    _id
+    name
+  }
+}
 `;
 

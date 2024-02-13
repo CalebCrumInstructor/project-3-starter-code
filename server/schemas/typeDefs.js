@@ -17,9 +17,20 @@ const typeDefs = `
     user: User
   }
 
+  type Presets {
+    _id: ID!
+    type: String!
+    name: String!
+    description: String
+    notes: String
+    createdAt: String
+    updatedAt: String
+  }
+
   type Campaign {
     _id: ID!
-    name: String
+    name: String!
+    owner: String!
     description: String
     general_notes: String
     session_notes: String
@@ -29,13 +40,16 @@ const typeDefs = `
 
   type Query {
     me: User
-    campaign: Campaign
+    campaign(_id: ID!): Campaign
+    allCampaignsByUser: [Campaign]
+    presets: [Presets]
   }
 
   type Mutation {
     addUser(firstName: String, lastName: String, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
-    addCampaign(name: String!, description: String, general_notes: String, session_notes: String) : Campaign
+    addCampaign(name: String!, owner: String!, description: String, general_notes: String, session_notes: String) : Campaign
+    addPresets(type: String!, name: String!, description: String, notes: String) : Presets
   }
 `;
 

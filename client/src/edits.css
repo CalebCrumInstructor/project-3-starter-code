@@ -59,9 +59,20 @@
 .slider {
     background: url(/images/0_-_fantasy_map_dark_theme.png);
     opacity: 0.75;
-    background-size: cover;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100vh;
     /*animation: slide 40s infinite ;  /*? for Shortened Animation */
-    /* animation: slide 300s infinite ;  ? for Lengthened Animation */
+    animation: slide 300s infinite ;  /*? for Lengthened Animation */
+}
+
+.z {
+    z-index: 0;
+}
+
+.rpgui-container {
+    position: relative !important;
 }
 
 /*? Shortened Animation */
@@ -199,5 +210,15 @@
     100%{
         background-image: url(/images/0_-_fantasy_map_dark_theme.png);
         opacity: 0.75;
+    }
+}
+
+
+@media screen and (max-width: 652px) {
+    .mobile {
+        margin-top: 24px !important;
+    }
+    .mobile-scrollbar {
+        height: 651px !important;
     }
 }

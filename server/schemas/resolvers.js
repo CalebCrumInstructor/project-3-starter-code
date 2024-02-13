@@ -1,4 +1,4 @@
-const { User, Campaign, Presets } = require('../models');
+const { User, Campaign, Presets, PlayerSheet } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { dateScalar } = require('./scalar');
 
@@ -28,6 +28,14 @@ const resolvers = {
         throw AuthenticationError;
       }
       return await Campaign.find({
+        owner: context.user._id
+      })
+    },
+    allPlayerSheetsByUser: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      return await PlayerSheet.find({
         owner: context.user._id
       })
     },
@@ -79,13 +87,22 @@ const resolvers = {
         throw CreateCampaignError;
       }
     },
+    createPlayerSheet: async (_, { name, description }, context) => {
+      try {
+        const playerSheet = await PlayerSheet.create({ name, description, owner: context.user._id });
+        return playerSheet;
+      } catch (err) {
+        console.error(err);
+        throw new Error('Failed to create player sheet!');
+      }
+    },
     createCampaign: async (_, { name, description }, context) => {
       try {
         const campaign = await Campaign.create({ name, description, owner: context.user._id });
         return campaign;
       } catch (err) {
         console.error(err);
-        throw new Error('Failed to create campaign');
+        throw new Error('Failed to create campaign!');
       }
     },
     addPresets: async (parent, argObj) => {

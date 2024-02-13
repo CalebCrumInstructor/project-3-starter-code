@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-// import { ADD_PLAYER } from "../graphql/mutations";
+import { CREATE_PLAYER_SHEET } from "../graphql/mutations";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
 
@@ -76,6 +76,7 @@ const styles = {
 
 export default function PlayerSheet() {
 
+    const [createPlayerSheet] = useMutation(CREATE_PLAYER_SHEET);
     const [playerData, setPlayerData] = useState({
         playerName: ''
     })
@@ -91,16 +92,21 @@ export default function PlayerSheet() {
     }
 
     const handleSubmit = async(event) => {
-      // event.preventDefault();
+        event.preventDefault();
 
-      // try {
-      //   const { data } = await addPlayer({
-      //     variables: { ...formState },
-      //   });
+        const formData = {
+            name: playerData.playerName,
+            description: playerData.playerDesc,
+        };
 
-      // } catch (e) {
-      //   console.error(e);
-      // }
+        try {
+            const { data } = await createPlayerSheet({
+            variables: { ...formData },
+            });
+
+        } catch (e) {
+            console.error('Error creating player sheet:', e);
+        }
     };
 
 

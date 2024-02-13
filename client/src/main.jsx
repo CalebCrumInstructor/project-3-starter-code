@@ -14,6 +14,8 @@ import Dashboard from "./pages/Dashboard.jsx";
 import App from "./App.jsx";
 import PlayerSheet from "./pages/PlayerSheet.jsx";
 import CampaignSheet from "./pages/CampaignSheet.jsx";
+import Player from "./pages/Player.jsx";
+import Campaign from "./pages/Campaign.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
       {
         path: "/campaignsheet",
         element: <CampaignSheet />,
+      },
+      {
+        path: "/player",
+        element: <Player />,
+      },
+      {
+        path: "/campaign/:id",
+        element: <Campaign />,
       },
     ],
   },

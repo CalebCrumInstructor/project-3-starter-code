@@ -40,7 +40,7 @@ export default function Dashboard() {
   const { loading, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
   console.log(campaignData);
   return (
-    <Page isProtected={false} headContent={headContent}> {/* isProtected={true} */}
+    <Page isProtected={true} headContent={headContent}> {/* isProtected={true} */}
       {/* <div>Dashboard</div> */}
       <div style={styles.container}>
         <h1 className="secondary-font secondary-color">
@@ -70,6 +70,12 @@ export default function Dashboard() {
           
         </div>
       </div>
+
+      {/* {!isAuthenticated && (
+          <Link to={"/login"}>
+            <button style={styles.button}>Login</button>
+          </Link>
+        )} */}
 
     </Page>
   );

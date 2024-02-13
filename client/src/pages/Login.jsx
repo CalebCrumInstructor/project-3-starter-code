@@ -6,7 +6,7 @@ import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import Background from "../../public/images/treasure map.png";
+import Background from "../../public/images/treasuremap.png";
 import Page from "../components/Page";
 import AuthService from "../utils/auth";
 
@@ -20,7 +20,7 @@ const styles = {
   Button: {
     cursor: "pointer",
     backgroundColor: "DodgerBlue",
-  },
+  }
 };
 
 const headContent = (
@@ -96,9 +96,9 @@ export default function Login() {
     //   </form>
     //   {error && <h3>{error.message}</h3>}
     // </Page>
-    <Container>
+    <Page style={styles.Page}>
     <Form isprotected="false" headcontent={headContent}> 
-    <Form.Group style={styles.form} className="mb-3" controlId="formBasicEmail" onSubmit={handleFormSubmit}>
+    <Form.Group style={styles.form} className="mb-3" controlId="formEmail" onSubmit={handleFormSubmit}>
       <Form.Label>Email address</Form.Label>
       <Form.Control type="email" placeholder="Enter email" name="email" value={formState.email} onChange={handleChange}/>
       <Form.Text className="text-muted">
@@ -106,7 +106,7 @@ export default function Login() {
       </Form.Text>
     </Form.Group>
 
-    <Form.Group style={styles.form} className="mb-3" controlId="formBasicPassword" onSubmit={handleFormSubmit}>
+    <Form.Group style={styles.form} className="mb-3" controlId="formPassword" onSubmit={handleFormSubmit}>
       <Form.Label>Password</Form.Label>
       <Form.Control type="password" placeholder="Password" name="password" value={formState.password} onChange={handleChange}/>
     </Form.Group>
@@ -114,6 +114,6 @@ export default function Login() {
       Submit
     </Button>
   </Form>
-  </Container>
+  </Page>
   );
 }

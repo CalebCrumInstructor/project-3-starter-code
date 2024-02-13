@@ -1,6 +1,7 @@
+import { useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { ADD_CAMPAIGN } from "../graphql/mutations";
+import { ADD_CAMPAIGN, CREATE_CAMPAIGN } from "../graphql/mutations";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
 
@@ -76,22 +77,15 @@ export default function CampaignSheet() {
 
     const { id } = useParams();
 
-    const { loading, data } = useQuery(FIND_CAMPAIGN, {
 
-        // pass URL parameter
-        variables: { _id: campaignID }
-    });
 
-    const [addCampaign, { error }] = useMutation
-    (ADD_CAMPAIGN, {
-    });
+    const [createCampaign] = useMutation(CREATE_CAMPAIGN);
 
     const [campaignData, setCampaignData] = useState({
         campaignName: ''
     })
 
     const handleChange = (event) => {
-        console.log('hit')
         const { name, value } = event.target;
         
         setCampaignData({
@@ -104,14 +98,18 @@ export default function CampaignSheet() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        const formData = {
+            name: campaignData.campaignName,
+            description: campaignData.campaignDesc,
+        };
 
         try {
-            const { data } = await addCampaign({
-            variables: { ...campaignData },
+            const { data } = await createCampaign({
+            variables: { ...formData },
             });
 
         } catch (e) {
-            console.error(e);
+            console.error('Error creating campaign:', e);
         }
     };
 

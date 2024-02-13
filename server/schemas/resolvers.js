@@ -12,10 +12,32 @@ const resolvers = {
       return await User.findById(context.user._id)
     },
     campaign: async (parent, args, context) => {
-      if (!context.user) {
-        throw AuthenticationError;
+      try {
+        if (!context.user) {
+          throw AuthenticationError;
+        }
+        const data = await Campaign.findById(args._id)
+  
+        return data;
+
+      } catch (err) {
+        console.log(err);
+        return err;
       }
-      return await Campaign.findById(args._id)
+    },
+    player: async (parent, args, context) => {
+      try {
+        if (!context.user) {
+          throw AuthenticationError;
+        }
+        const data = await PlayerSheet.findById(args._id)
+  
+        return data;
+
+      } catch (err) {
+        console.log(err);
+        return err;
+      }
     },
     allCampaigns: async (parent, args, context) => {
       if (!context.user) {

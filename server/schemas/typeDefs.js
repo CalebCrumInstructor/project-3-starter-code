@@ -45,6 +45,7 @@ const typeDefs = `
     allUsers: [User]
     me: User
     campaign(_id: ID!): Campaign
+    player(_id: ID!): PlayerSheet
     allCampaigns: [Campaign]
     allCampaignsByUser: [Campaign]
     allPlayerSheetsByUser: [PlayerSheet]

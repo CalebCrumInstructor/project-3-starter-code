@@ -15,7 +15,13 @@ const resolvers = {
       if (!context.user) {
         throw AuthenticationError;
       }
-      return await Campaign.findById(args.campaign._id)
+      return await Campaign.findById(args._id)
+    },
+    allCampaigns: async (parent, args, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      return await Campaign.find()
     },
     allCampaignsByUser: async (parent, args, context) => {
       if (!context.user) {
@@ -71,6 +77,15 @@ const resolvers = {
       } catch (err) {
         console.log(err);
         throw CreateCampaignError;
+      }
+    },
+    createCampaign: async (_, { name, description }, context) => {
+      try {
+        const campaign = await Campaign.create({ name, description, owner: context.user._id });
+        return campaign;
+      } catch (err) {
+        console.error(err);
+        throw new Error('Failed to create campaign');
       }
     },
     addPresets: async (parent, argObj) => {

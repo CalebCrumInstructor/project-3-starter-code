@@ -1,9 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
+import { useState } from 'react';
 
 import { Link } from "react-router-dom";
 import Page from "../components/Page";
 import { QUERY_MY_CAMPAIGNS } from '../graphql/queries';
+import { ADD_CAMPAIGN } from '../graphql/mutations';
 
 const headContent = (
   <>
@@ -39,8 +42,10 @@ const styles = {
 export default function Dashboard() {
   const { loading, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
   console.log(campaignData);
+
+  
   return (
-    <Page isProtected={false} headContent={headContent}> {/* isProtected={true} */}
+    <Page isProtected={true} headContent={headContent}> {/* isProtected={true} */}
       {/* <div>Dashboard</div> */}
       <div style={styles.container}>
         <h1 className="secondary-font secondary-color">
@@ -71,6 +76,12 @@ export default function Dashboard() {
         </div>
       </div>
 
+      {/* {!isAuthenticated && (
+          <Link to={"/login"}>
+            <button style={styles.button}>Login</button>
+          </Link>
+        )} */}
+
     </Page>
   );
-}
+};

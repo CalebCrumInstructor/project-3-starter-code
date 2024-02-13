@@ -51,7 +51,7 @@ export default function Header() {
         <h1 className="quinary-font site-header my-2 ms-2" >Guild Journeys</h1>
       </Link>
       <div style={styles.buttonDiv}>
-        {!isAuthenticated && ( /* isAuthenticated */
+        {isAuthenticated && ( /* isAuthenticated */
           <Link to={"/dashboard"}>
             <button style={styles.button}>Dashboard</button>
           </Link>

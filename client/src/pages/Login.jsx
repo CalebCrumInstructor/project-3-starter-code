@@ -6,7 +6,7 @@ import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import Background from "../../public/images/treasuremap.png";
+import Background from "../../public/images/loginbg.jpg";
 import Page from "../components/Page";
 import AuthService from "../utils/auth";
 
@@ -15,11 +15,14 @@ const styles = {
     display: "flex",
     flexDirection: "Column",
     width: "100%",
-    backgroundImage: `url(${Background})`,
+    // backgroundImage: `url(${Background})`,
   },
   Button: {
     cursor: "pointer",
     backgroundColor: "DodgerBlue",
+  },
+  text: {
+    color: "pink",
   }
 };
 
@@ -101,7 +104,7 @@ export default function Login() {
     <Form.Group style={styles.form} className="mb-3" controlId="formEmail" onSubmit={handleFormSubmit}>
       <Form.Label>Email address</Form.Label>
       <Form.Control type="email" placeholder="Enter email" name="email" value={formState.email} onChange={handleChange}/>
-      <Form.Text className="text-muted">
+      <Form.Text className="text" style={styles.text}>
         We'll never share your email with anyone else.
       </Form.Text>
     </Form.Group>
@@ -114,6 +117,7 @@ export default function Login() {
       Submit
     </Button>
   </Form>
+  {/* {error && <h3>{error.message}</h3>} */}
   </Page>
   );
 }

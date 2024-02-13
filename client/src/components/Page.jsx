@@ -20,7 +20,7 @@ const styles = {
 
 const defaultHeadContent = (
   <>
-    <title>Please Change Me!</title>
+    <title>Guild Journeys</title>
     <meta
       name="description"
       content="This is the default description of my App."

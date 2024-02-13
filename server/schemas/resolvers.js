@@ -15,7 +15,7 @@ const resolvers = {
       if (!context.user) {
         throw AuthenticationError;
       }
-      return await Campaign.findById(args.campaign._id)
+      return await Campaign.findById(args._id)
     },
     allCampaigns: async (parent, args, context) => {
       if (!context.user) {

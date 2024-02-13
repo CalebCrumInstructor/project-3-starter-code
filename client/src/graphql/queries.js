@@ -45,3 +45,12 @@ query Query {
 }
 `;
 
+export const QUERY_CAMPAIGN = gql`
+query Campaign($id: ID!) {
+  campaign(_id: $id) {
+    _id
+    name
+    description
+  }
+}
+`

@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <CampaignSheet />,
       },
       {
-        path: "/player",
+        path: "/player/:id",
         element: <Player />,
       },
       {

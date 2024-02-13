@@ -39,23 +39,12 @@ const styles = {
     p1: {
         fontSize: "25px",
         color: "var(--secondary-color)",
+        alignItems: "center",
     },
     p2: {
         fontSize: "15px",
         marginTop: "10px",
         color: "var(--secondary-color)"
-    },
-    formElementInput: {
-        marginBottom: "10px",
-        // width: "80%",
-    },
-    formElementTextarea: {
-        marginBottom: "10px",
-        height: "400px",
-    },
-    formElementCheckbox: {
-        marginBottom: "10px",
-        rows: "50",
     },
     buttonDiv: {
         fontFamily: "var(--tertiary-font)",
@@ -82,7 +71,7 @@ export default function CampaignSheet() {
     const { loading, data } = useQuery(QUERY_CAMPAIGN, {
 
         // pass URL parameter
-        variables: { id: id }
+        variables: { id } // data.campaign.description/name/id
     });
 
     console.log(data);
@@ -125,134 +114,28 @@ export default function CampaignSheet() {
         <Page isProtected={false} headContent={headContent}> {/* isProtected={true} */}
         {/* <div>Campaign Sheet</div> */}
             <div style={styles.minicontainer} className="rpgui-container framed mx-auto my-4">
-                <form style={styles.form} onSubmit={handleSubmit}>
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div className="col-12 offset-md-1 col-md-10">
-                                <p style={styles.p1} className="text-center">Campaign Name</p>
-                                <input style={styles.formElementInput}
-                                    name="campaignName"
-                                    type="text"
-                                    onChange={handleChange}
-                                    value={campaignData.campaignName}
-                                />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-12 offset-md-1 col-md-10">
-                                <p style={styles.p2} className="text-center">Campaign Description</p>
-                                <textarea style={styles.formElementTextarea} rows="20" cols="40"
-                                    name="campaignDesc"
-                                    type="text"
-                                    onChange={handleChange}
-                                    value={campaignData.campaignDesc}
-                                />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-12 col-md-6">
-                                <p style={styles.p2}>Things Allowed 1</p>
-                                <select style={styles.formElementCheckbox} size="4" multiple
-                                    name="races"
-                                    type="option"
-                                    onChange={handleChange}
-                                    value={campaignData.campaignDesc}>
-                                        <option value="option1">Option1</option>
-                                        <option value="option2">Option2</option>
-                                        <option value="option3">Option3</option>
-                                        <option value="option4">Option4</option>
-                                        <option value="option5">Option5</option>
-                                        <option value="option6">Option6</option>
-                                        <option value="option7">Option7</option>
-                                        <option value="option8">Option8</option>
-                                </select>
-                            </div>
-                            <div className="col-12 col-md-6">
-                                <p style={styles.p2}>Things Allowed 2</p>
-                                <select style={styles.formElementCheckbox} size="4" multiple
-                                    name="races"
-                                    type="option"
-                                    onChange={handleChange}
-                                    value={campaignData.campaignDesc}>
-                                        <option value="option1">Option1</option>
-                                        <option value="option2">Option2</option>
-                                        <option value="option3">Option3</option>
-                                        <option value="option4">Option4</option>
-                                        <option value="option5">Option5</option>
-                                        <option value="option6">Option6</option>
-                                        <option value="option7">Option7</option>
-                                        <option value="option8">Option8</option>
-                                </select>
-                            </div>
-                            <div className="col-12 col-md-6">
-                                <p style={styles.p2}>Things Allowed 3</p>
-                                <select style={styles.formElementCheckbox} size="4" multiple
-                                    name="races"
-                                    type="option"
-                                    onChange={handleChange}
-                                    value={campaignData.campaignDesc}>
-                                        <option value="option1">Option1</option>
-                                        <option value="option2">Option2</option>
-                                        <option value="option3">Option3</option>
-                                        <option value="option4">Option4</option>
-                                        <option value="option5">Option5</option>
-                                        <option value="option6">Option6</option>
-                                        <option value="option7">Option7</option>
-                                        <option value="option8">Option8</option>
-                                </select>
-                            </div>
-                            <div className="col-12 col-md-6">
-                                <p style={styles.p2}>Things Allowed 4</p>
-                                <select style={styles.formElementCheckbox} size="4" multiple
-                                    name="races"
-                                    type="option"
-                                    onChange={handleChange}
-                                    value={campaignData.campaignDesc}>
-                                        <option value="option1">Option1</option>
-                                        <option value="option2">Option2</option>
-                                        <option value="option3">Option3</option>
-                                        <option value="option4">Option4</option>
-                                        <option value="option5">Option5</option>
-                                        <option value="option6">Option6</option>
-                                        <option value="option7">Option7</option>
-                                        <option value="option8">Option8</option>
-                                </select>
-                            </div>
-
-                            <div className="col-12 col-md-6">
-                                <p style={styles.p2}>Things Allowed 4</p>
-                                <div>
-                                    <input id="option1" style={styles.formElementCheckbox} className="rpgui-checkbox"
-                                        name="option1"
-                                        type="checkbox"
-                                        onChange={handleChange}
-                                        value={campaignData.campaignDesc}/>
-                                            <label htmlFor="option1">Option1</label>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : (
+                    <div style={styles.form} onSubmit={handleSubmit}>
+                        <div className="container-fluid">
+                            <div className="row">
+                                <div className="col-12 offset-md-1 col-md-10">
+                                    <p style={styles.p1} className="text-center">Campaign Name</p>
+                                    <p style={styles.p1} className="text-center">{data.campaign.name}</p> {/* or data?.campaign?.name */}
                                 </div>
-                                <div>
-                                    <input id="option2" style={styles.formElementCheckbox} className="rpgui-checkbox"
-                                        name="option2"
-                                        type="checkbox"
-                                        onChange={handleChange}
-                                        value={campaignData.campaignDesc}/>
-                                            <label htmlFor="option2">Option2</label>
+                            </div>
+                            <div className="row">
+                                <div className="col-12 offset-md-1 col-md-10">
+                                    <p style={styles.p2} className="text-center">Campaign Description</p>
+                                    <p style={styles.p2}>{data.campaign.description}</p> {/* or data?.campaign?.description */}
                                 </div>
                             </div>
 
-
-                            {/* <input class="rpgui-checkbox" type="checkbox"><label>This is checkbox.</label></input> */}
-
                         </div>
-                        <div className="row">
-                            <div className="col d-flex justify-content-center">
-                                <button type="submit" style={styles.buttonDiv}>
-                                    Submit
-                                </button>
-                            </div>
-                        </div>
+
                     </div>
-
-                </form>
+                )}
             </div>
         </Page>
     );

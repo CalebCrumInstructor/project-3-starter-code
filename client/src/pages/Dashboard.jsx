@@ -1,12 +1,9 @@
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { useMutation } from '@apollo/client';
+import { Link, useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 import { useState } from 'react';
 
-import { Link } from "react-router-dom";
 import Page from "../components/Page";
-import { QUERY_MY_CAMPAIGNS } from '../graphql/queries';
-import { ADD_CAMPAIGN } from '../graphql/mutations';
+import { QUERY_MY_CAMPAIGNS, QUERY_MY_PLAYER_SHEETS } from '../graphql/queries';
 
 const headContent = (
   <>
@@ -27,7 +24,7 @@ const styles = {
     alignItems: "center",
     marginBottom: "25px",
   },
-  buttonDiv: {
+  buttonDiv1: {
     fontFamily: "var(--tertiary-font)",
     display: "flex",
     flexDirection: "row",
@@ -37,11 +34,21 @@ const styles = {
     background: "radial-gradient(rgba(25, 0, 255, 0), rgb(25, 19, 56))",
     backgroundColor: "rgb(170, 170, 170)", // gray
   },
+  buttonDiv2: {
+    fontFamily: "var(--tertiary-font)",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontSize: "25px",
+    background: "radial-gradient(100% 100% at 50% 50%, rgba(255, 255, 255, 1) 12%, rgba(0, 0, 0, 1) 84%)",
+    backgroundColor: "rgb(170, 170, 170)", // gray
+  },
 };
 
 export default function Dashboard() {
-  const { loading, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
-  console.log(campaignData);
+  const { loading: loadingCampaign, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
+  const { loading: loadingPlayerSheet, data: playerSheetData } = useQuery(QUERY_MY_PLAYER_SHEETS);
 
   
   return (
@@ -52,35 +59,50 @@ export default function Dashboard() {
           Your Campaign Sheets!
         </h1>
         <div style={styles.minicontainer}>
-          <div style={styles.buttonDiv}>
+          <div style={styles.buttonDiv1}>
             <Link to={"/campaignsheet"}>
-              <button style={styles.buttonDiv}>Create a Campaign now!</button>
+              <button style={styles.buttonDiv1}>Create a Campaign now!</button>
             </Link>
 
           </div>
           
         </div>
+            {campaignData ? campaignData.allCampaignsByUser.map(({ _id, name }) => (
+                <div style={styles.minicontainer}>
+                  <Link key={_id} to={`/campaign/${_id}`}>
+                    <button style={styles.buttonDiv2}>{name}</button>
+                  </Link>
+                </div>
+            ))
+              :
+              <div>loading</div>
+            }
       </div>
       <div style={styles.container}>
         <h1 className="secondary-font secondary-color">
           Your Player Sheets!
         </h1>
         <div style={styles.minicontainer}>
-          <div style={styles.buttonDiv}> {/* */}
+          <div style={styles.buttonDiv1}> {/* */}
 
             <Link to={"/playersheet"}>
-              <button style={styles.buttonDiv}>Create a Player now!</button>
+              <button style={styles.buttonDiv1}>Create a Player now!</button>
             </Link>
           </div>
           
         </div>
+        {playerSheetData ? playerSheetData.allPlayerSheetsByUser.map(({ _id, name }) => (
+                <div style={styles.minicontainer}>
+                  <Link key={_id} to={`/player/${_id}`}>
+                    <button style={styles.buttonDiv2}>{name}</button> {/* */}
+                  </Link>
+                </div>
+            ))
+              :
+              <div>loading</div>
+            }
       </div>
 
-      {/* {!isAuthenticated && (
-          <Link to={"/login"}>
-            <button style={styles.button}>Login</button>
-          </Link>
-        )} */}
 
     </Page>
   );

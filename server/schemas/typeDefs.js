@@ -34,12 +34,21 @@ const typeDefs = `
     description: String
   }
 
+  type PlayerSheet {
+    _id: ID!
+    name: String!
+    owner: String
+    description: String
+  }
+
   type Query {
     allUsers: [User]
     me: User
     campaign(_id: ID!): Campaign
+    player(_id: ID!): PlayerSheet
     allCampaigns: [Campaign]
     allCampaignsByUser: [Campaign]
+    allPlayerSheetsByUser: [PlayerSheet]
     presets: [Presets]
   }
 
@@ -49,6 +58,7 @@ const typeDefs = `
     createCampaign(name: String!, description: String): Campaign
     addCampaign(name: String!, owner: String!, description: String, general_notes: String, session_notes: String) : Campaign
     addPresets(type: String!, name: String!, description: String, notes: String) : Presets
+    createPlayerSheet(name: String!, description: String): PlayerSheet
   }
 `;
 

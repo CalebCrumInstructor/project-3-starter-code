@@ -75,10 +75,6 @@ const styles = {
 
 export default function CampaignSheet() {
 
-    const { id } = useParams();
-
-
-
     const [createCampaign] = useMutation(CREATE_CAMPAIGN);
 
     const [campaignData, setCampaignData] = useState({
@@ -105,7 +101,7 @@ export default function CampaignSheet() {
 
         try {
             const { data } = await createCampaign({
-            variables: { ...formData },
+                variables: { ...formData },
             });
 
         } catch (e) {
@@ -215,19 +211,23 @@ export default function CampaignSheet() {
                             <div className="col-12 col-md-6">
                                 <p style={styles.p2}>Things Allowed 4</p>
                                 <div>
-                                    <input id="option1" style={styles.formElementCheckbox} className="rpgui-checkbox"
-                                        name="option1"
-                                        type="checkbox"
+                                    <input id="option1" style={styles.formElementCheckbox} className="rpgui-radio"
+                                        name="option"
+                                        type="radio"
                                         onChange={handleChange}
-                                        value={campaignData.campaignDesc}/>
+                                        checked={campaignData.campaignDesc}
+                                        value={'1'}
+                                    />
                                             <label htmlFor="option1">Option1</label>
                                 </div>
                                 <div>
-                                    <input id="option2" style={styles.formElementCheckbox} className="rpgui-checkbox"
-                                        name="option2"
-                                        type="checkbox"
+                                    <input id="option2" style={styles.formElementCheckbox} className="rpgui-radio"
+                                        name="option"
+                                        type="radio"
                                         onChange={handleChange}
-                                        value={campaignData.campaignDesc}/>
+                                        checked={campaignData.campaignDesc}
+                                        value={'2'}
+                                    />
                                             <label htmlFor="option2">Option2</label>
                                 </div>
                             </div>

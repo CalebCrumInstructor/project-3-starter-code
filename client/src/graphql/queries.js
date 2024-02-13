@@ -54,3 +54,23 @@ query Campaign($id: ID!) {
   }
 }
 `
+
+export const QUERY_MY_PLAYER_SHEETS = gql`
+query Query {
+  allPlayerSheetsByUser {
+    _id
+    name
+    description
+  }
+}
+`;
+
+export const QUERY_PLAYER = gql`
+query Player($id: ID!) {
+  player(_id: $id) {
+    _id
+    name
+    description
+  }
+}
+`

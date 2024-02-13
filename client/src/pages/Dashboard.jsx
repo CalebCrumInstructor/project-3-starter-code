@@ -60,6 +60,14 @@ export default function Dashboard() {
           </div>
           
         </div>
+            {campaignData ? campaignData.allCampaignsByUser.map(({ _id, name }) => (
+                  <Link key={_id} to={`/campaign/${_id}`}>
+                    <button style={styles.buttonDiv}>{name}</button>
+                  </Link>
+            ))
+              :
+              <div>loading</div>
+            }
       </div>
       <div style={styles.container}>
         <h1 className="secondary-font secondary-color">
@@ -76,11 +84,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* {!isAuthenticated && (
-          <Link to={"/login"}>
-            <button style={styles.button}>Login</button>
-          </Link>
-        )} */}
 
     </Page>
   );

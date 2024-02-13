@@ -1,12 +1,9 @@
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { useMutation } from '@apollo/client';
+import { Link, useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 import { useState } from 'react';
 
-import { Link } from "react-router-dom";
 import Page from "../components/Page";
-import { QUERY_MY_CAMPAIGNS } from '../graphql/queries';
-import { ADD_CAMPAIGN } from '../graphql/mutations';
+import { QUERY_MY_CAMPAIGNS, QUERY_MY_PLAYER_SHEETS } from '../graphql/queries';
 
 const headContent = (
   <>
@@ -40,8 +37,8 @@ const styles = {
 };
 
 export default function Dashboard() {
-  const { loading, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
-  console.log(campaignData);
+  const { loading: loadingCampaign, data: campaignData } = useQuery(QUERY_MY_CAMPAIGNS);
+  const { loading: loadingPlayerSheet, data: playerSheetData } = useQuery(QUERY_MY_PLAYER_SHEETS);
 
   
   return (

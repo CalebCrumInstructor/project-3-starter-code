@@ -50,6 +50,15 @@ export const ADD_CAMPAIGN = gql`
   }
 `;
 
+export const CREATE_CAMPAIGN = gql`
+  mutation createCampaignMutation($name: String!, $description: String) {
+    createCampaign(name: $name, description: $description) {
+      _id
+      name
+      description
+    }
+  }
+`;
 export const ADD_PRESETS = gql`
   mutation addPresetsMutation($name: String!, $description: String, $general_notes: String, $session_notes: String) {
     addPresets(name: $name, description: $description, general_notes: $general_notes, session_notes: $session_notes) {

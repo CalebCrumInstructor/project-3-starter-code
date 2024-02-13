@@ -37,7 +37,7 @@ export const QUERY_ME = gql`
 // }
 
 export const QUERY_MY_CAMPAIGNS = gql`
-query AllCampaignsByUser {
+query Query {
   allCampaignsByUser {
     _id
     name

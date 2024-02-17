@@ -21,7 +21,7 @@ const styles = {
 
 const headContent = (
   <>
-    <title>Sign Up</title>
+    <title>Change Me! - Sign Up</title>
     <meta
       name="description"
       content="Sign Up page for Project-3 Starter Code."

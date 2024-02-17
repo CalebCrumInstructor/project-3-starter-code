@@ -10,16 +10,17 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+    paddingTop: "120px",
   },
   main: {
-    paddingTop: "80px",
     flexGrow: "1",
+    overflowY: "scroll"
   },
 };
 
 const defaultHeadContent = (
   <>
-    <title>Please Change Me!</title>
+    <title>Guild Journeys</title>
     <meta
       name="description"
       content="This is the default description of my App."
@@ -38,7 +39,7 @@ export default function Page({
     <>
       <Helmet>{headContent}</Helmet>
       <Header />
-      <div style={styles.container}>
+      <div style={styles.container} className="slider container-fluid rpgui-content">
         <main style={styles.main}>
           {isProtected && !isAuthenticated ? <div>Unauthorized</div> : children}
         </main>

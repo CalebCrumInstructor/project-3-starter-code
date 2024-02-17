@@ -2,7 +2,7 @@ import Page from "../components/Page";
 
 const headContent = (
   <>
-    <title>Change Me! - Home</title>
+    <title>Welcome to Guild Journeys!</title>
     <meta name="description" content="This is the home page of my app." />
   </>
 );
@@ -10,7 +10,7 @@ const headContent = (
 export default function Home() {
   return (
     <Page isProtected={false} headContent={headContent}>
-      <div>Home</div>
+      <div></div>
     </Page>
   );
 }

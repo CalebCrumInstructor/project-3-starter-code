@@ -10,7 +10,7 @@ const styles = {
 export default function Footer() {
   return (
     <div style={styles.container}>
-      <h5>This is the Starter Code Footer</h5>
+      <h5>Welcome to Guild Journeys!</h5>
     </div>
   );
 }

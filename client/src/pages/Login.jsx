@@ -4,7 +4,9 @@ import { LOGIN_USER } from "../graphql/mutations";
 import { useSelector } from "react-redux";
 import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
-
+import { Button, Container } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import Background from "../../public/images/loginbg.jpg";
 import Page from "../components/Page";
 import AuthService from "../utils/auth";
 
@@ -12,16 +14,18 @@ const styles = {
   form: {
     display: "flex",
     flexDirection: "Column",
-    width: "300px",
+    width: "100%",
+    // backgroundImage: `url(${Background})`,
   },
-  submitBtn: {
+  Button: {
     cursor: "pointer",
-  },
+    backgroundColor: "DodgerBlue",
+  }
 };
 
 const headContent = (
   <>
-    <title>Change Me! - Login</title>
+    <title>Login</title>
     <meta name="description" content="Login for Project-3 Starter Code." />
   </>
 );
@@ -59,7 +63,7 @@ export default function Login() {
   };
 
   if (isAuthenticated) {
-    return <Navigate to={"/dashboard"} />;
+    return <Navigate to={"/dashboard"}/>;
   }
 
   return (
@@ -81,11 +85,11 @@ export default function Login() {
           onChange={handleChange}
         />
         {loading ? (
-          <button type="submit" disabled={true} style={styles.submitBtn}>
+          <button type="submit" disabled={true} style={styles.Button}>
             Loading...
           </button>
         ) : (
-          <button type="submit" style={styles.submitBtn}>
+          <button type="submit" style={styles.Button}>
             Submit
           </button>
         )}

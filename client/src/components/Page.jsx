@@ -1,9 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import { useSelector } from "react-redux";
-import { getUser } from "../redux/slices/userSlice";
-
 import Header from "./Header";
 import Footer from "./Footer";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const styles = {
   container: {
@@ -32,7 +30,8 @@ export default function Page({
   headContent = defaultHeadContent,
   children,
 }) {
-  const { isAuthenticated } = useSelector(getUser());
+  const [state, dispatch] = useGlobalContext();
+  const { isAuthenticated } = state;
 
   return (
     <>

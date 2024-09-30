@@ -5,8 +5,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { store } from "./redux/store";
-import { Provider } from "react-redux";
+import { GlobalContextProvider } from "./context/GlobalContext";
 
 import { HelmetProvider } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
@@ -35,11 +34,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <HelmetProvider>
-        <Provider store={store}>
+        <GlobalContextProvider>
           <Auth>
             <Outlet />
           </Auth>
-        </Provider>
+        </GlobalContextProvider>
       </HelmetProvider>
     </ApolloProvider>
   );

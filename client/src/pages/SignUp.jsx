@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../graphql/mutations";
-import { useSelector } from "react-redux";
-import { getUser } from "../redux/slices/userSlice";
 import { Navigate } from "react-router-dom";
-
 import Page from "../components/Page";
 import AuthService from "../utils/auth";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const styles = {
   form: {
@@ -31,7 +29,8 @@ const headContent = (
 
 export default function SignUp() {
   const [addUser, { error, data, loading }] = useMutation(ADD_USER);
-  const { isAuthenticated } = useSelector(getUser());
+  const [state, dispatch] = useGlobalContext();
+  const { isAuthenticated } = state;
 
   const [formState, setFormState] = useState({
     firstName: "",

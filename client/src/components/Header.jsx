@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import AuthServices from "../utils/auth";
-import { useSelector } from "react-redux";
-import { getUser } from "../redux/slices/userSlice";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const styles = {
   container: {
@@ -28,7 +27,8 @@ const styles = {
 };
 
 export default function Header() {
-  const { isAuthenticated } = useSelector(getUser());
+  const [state, dispatch] = useGlobalContext();
+  const { isAuthenticated } = state;
 
   const handleLogout = (e) => {
     AuthServices.logout();

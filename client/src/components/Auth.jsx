@@ -1,23 +1,28 @@
 import AuthService from "../utils/auth";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-
-import { setAuthenticatedUser } from "../redux/slices/userSlice";
+import { SET_USER } from "../context/actions";
+import { useGlobalContext } from "../context/GlobalContext";
 
 export default function Auth({ children }) {
-  const dispatch = useDispatch();
-
-  const handleSetAuthenticatedUser = () => {
-    if (!AuthService.loggedIn()) return;
-
-    dispatch(setAuthenticatedUser(AuthService.getProfile()));
-  };
-
-  handleSetAuthenticatedUser();
+  const [state, dispatch] = useGlobalContext();
 
   useEffect(() => {
+    console.log("hit");
+    const handleSetAuthenticatedUser = () => {
+      console.log("handleSetAuthenticatedUser 1");
+      if (!AuthService.loggedIn()) return;
+      console.log("handleSetAuthenticatedUser 2");
+
+      dispatch({
+        type: SET_USER,
+        payload: {
+          ...AuthService.getProfile(),
+        },
+      });
+    };
+
     handleSetAuthenticatedUser();
-  }, []);
+  }, [dispatch]);
 
   return children;
 }
